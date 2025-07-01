@@ -3,355 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robots & AI: Exploring Tomorrow's Technology</title>
+    <title>AI in Our Daily Lives</title>
     <style>
-        :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
-            --accent-color: #4fc3f7;
-            --success-color: #4caf50;
-            --danger-color: #f44336;
-            --warning-color: #ffb74d;
-            --dark-bg: #0f0f0f;
-            --light-bg: rgba(255, 255, 255, 0.05);
-            --text-color: #e0e0e0;
-            --border-radius: 15px;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a2e 50%, #16213e 100%);
-            color: var(--text-color);
-            line-height: 1.6;
-            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 20px 60px 20px;
+            padding: 20px;
         }
 
-        /* Header Styles */
+        /* Header */
         .header {
             text-align: center;
-            padding: 80px 0 60px;
-            background: linear-gradient(45deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            margin-bottom: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
+            padding: 40px 0;
+            background: linear-gradient(45deg, #e50914, #f40612);
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
 
         .header h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
+            font-size: 3em;
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: glow 2s ease-in-out infinite alternate;
-            position: relative;
-            z-index: 2;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-            to { text-shadow: 2px 2px 20px rgba(255,255,255,0.3); }
         }
 
         .header p {
-            font-size: 1.5em;
-            opacity: 0.95;
-            margin-bottom: 30px;
-            position: relative;
-            z-index: 2;
+            font-size: 1.2em;
+            opacity: 0.9;
         }
 
-        .robot-animation {
-            width: 120px;
-            height: 120px;
-            background: var(--accent-color);
-            border-radius: 20px;
-            margin: 20px auto;
-            position: relative;
-            animation: robotMove 3s ease-in-out infinite;
-            z-index: 2;
-            position: relative;
-        }
-
-        @keyframes robotMove {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-
-        .robot-animation::before {
-            content: '🤖';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4em;
-        }
-
-        /* Section Styles */
-        .section {
-            background: var(--light-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--border-radius);
-            padding: 40px;
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
-            animation: rotateGlow 20s linear infinite;
-            z-index: 0;
-        }
-
-        @keyframes rotateGlow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .section h2 {
-            color: var(--accent-color);
-            font-size: 2.5em;
-            margin-bottom: 25px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(45deg, var(--accent-color), #29b6f6);
-            border-radius: 2px;
-            z-index: 1;
-        }
-
-        .section h3 {
-            color: #81c784;
-            font-size: 1.8em;
-            margin: 25px 0 15px 0;
-            z-index: 1;
-        }
-
-        /* Grid Layout */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-            z-index: 1;
-            position: relative;
-        }
-
-        /* Card Component */
-        .card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .card:hover::before {
-            left: 100%;
-        }
-
-        .card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-        }
-
-        .card h4 {
-            color: var(--warning-color);
-            font-size: 1.4em;
-            margin-bottom: 15px;
-        }
-
-        /* Comparison Section */
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 30px 0;
-        }
-
-        .vs-item {
-            background: linear-gradient(135deg, #e91e63 0%, #ad1457 100%);
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .vs-item.ai {
-            background: linear-gradient(135deg, #3f51b5 0%, #1a237e 100%);
-        }
-
-        .vs-item:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Fact Box */
-        .fact-box {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 15px 0;
-            border-left: 5px solid #fff;
-            transition: transform 0.3s ease;
-        }
-
-        .fact-box:hover {
-            transform: translateX(5px);
-        }
-
-        .fact-number {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--accent-color), #29b6f6);
-            transform: translateX(-50%);
-            z-index: 0;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin: 30px 0;
-            padding: 25px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 10px;
-            width: 45%;
-            z-index: 1;
-            transition: transform 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(5px);
-        }
-
-        .timeline-item:nth-child(odd) {
-            margin-left: 55%;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            top: 30px;
-            z-index: 2;
-        }
-
-        .timeline-item:nth-child(odd)::before {
-            left: -37px;
-        }
-
-        .timeline-item:nth-child(even)::before {
-            right: -37px;
-        }
-
-        /* Interactive Elements */
-        .interactive-element {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            color: #333;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 20px 0;
-            text-align: center;
+        .nav-btn {
+            background: linear-gradient(45deg, #333, #555);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
             cursor: pointer;
+            font-size: 16px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .interactive-element:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        .nav-btn:hover {
+            background: linear-gradient(45deg, #e50914, #f40612);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
         }
 
-        /* Quiz Section */
-        .quiz-section {
-            background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .nav-btn.active {
+            background: linear-gradient(45deg, #e50914, #f40612);
+            transform: scale(1.05);
         }
 
-        .quiz-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .question {
-            background: rgba(255,255,255,0.1);
-            padding: 25px;
-            border-radius: 15px;
-            margin-bottom: 20px;
+        /* Sections */
+        .section {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        .section.active {
+            display: block;
         }
 
         @keyframes fadeIn {
@@ -359,700 +98,973 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .question.active {
-            display: block;
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
         }
 
-        .question h3 {
-            color: #fff;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+
+        .card h2 {
+            color: #e50914;
             margin-bottom: 20px;
+            font-size: 2.2em;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #ffdd44;
+            margin-bottom: 15px;
             font-size: 1.5em;
         }
 
-        .options {
-            display: grid;
-            gap: 15px;
+        .card p, .card li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
 
-        .option {
-            background: rgba(255,255,255,0.1);
-            border: 2px solid transparent;
-            padding: 15px;
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.2), rgba(244, 6, 18, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(229, 9, 20, 0.3);
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.3), rgba(244, 6, 18, 0.2));
+        }
+
+        /* Interactive Elements */
+        .ai-finder {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .ai-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .ai-item {
+            padding: 20px;
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1.1em;
-            position: relative;
-            overflow: hidden;
+            border: 2px solid transparent;
         }
 
-        .option::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.1);
-            transition: left 0.5s ease;
+        .ai-item.ai-yes {
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
         }
 
-        .option:hover::after {
-            left: 100%;
+        .ai-item.ai-no {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+        }
+
+        .ai-item:hover {
+            transform: scale(1.1);
+            border-color: #ffdd44;
+        }
+
+        .ai-item.revealed {
+            border-color: #e50914;
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .question {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #e50914;
+        }
+
+        .question h4 {
+            color: #ffdd44;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .option:hover {
-            background: rgba(255,255,255,0.15);
-            border-color: var(--accent-color);
+            background: rgba(229, 9, 20, 0.2);
+            border-color: #e50914;
         }
 
         .option.selected {
-            background: var(--accent-color);
-            color: #000;
+            background: linear-gradient(45deg, #e50914, #f40612);
+            border-color: #fff;
         }
 
         .option.correct {
-            background: var(--success-color);
-            color: #fff;
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
+            border-color: #fff;
         }
 
         .option.incorrect {
-            background: var(--danger-color);
-            color: #fff;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            border-color: #fff;
         }
 
-        .quiz-nav {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .btn {
-            background: linear-gradient(45deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        .quiz-btn {
+            background: linear-gradient(45deg, #e50914, #f40612);
             color: white;
             border: none;
             padding: 15px 30px;
             border-radius: 25px;
             cursor: pointer;
-            font-size: 1.1em;
-            margin: 0 10px;
+            font-size: 16px;
+            margin: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:hover {
+        .quiz-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
         }
 
-        .btn:disabled {
+        .quiz-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
         }
 
-        .quiz-progress {
-            background: rgba(255,255,255,0.1);
-            height: 8px;
-            border-radius: 4px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-
-        .quiz-progress-bar {
-            background: linear-gradient(45deg, var(--accent-color), #29b6f6);
-            height: 100%;
-            transition: width 0.3s ease;
-            border-radius: 4px;
-        }
-
-        .quiz-result {
-            display: none;
+        .score-display {
             text-align: center;
-            padding: 40px;
-            background: rgba(255,255,255,0.1);
+            font-size: 1.5em;
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #2ecc71, #27ae60);
             border-radius: 15px;
-            margin-top: 30px;
-            animation: popIn 0.5s ease;
         }
 
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+        /* Animations */
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
 
-        .score-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: conic-gradient(var(--success-color) 0deg, var(--success-color) var(--score-deg, 0deg), rgba(255,255,255,0.1) var(--score-deg, 0deg));
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(229, 9, 20, 0.3); }
+            to { box-shadow: 0 0 30px rgba(229, 9, 20, 0.6); }
+        }
+
+        /* Stats */
+        .stats {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px auto;
-            font-size: 2em;
+            justify-content: space-around;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: linear-gradient(45deg, rgba(229, 9, 20, 0.2), rgba(244, 6, 18, 0.1));
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: #ffdd44;
+            display: block;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .header h1 { 
-                font-size: 3em; 
-            }
-            
-            .section h2 {
-                font-size: 2.2em;
-            }
+        .stat-label {
+            font-size: 1.1em;
+            margin-top: 5px;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .header h1 { 
-                font-size: 2.5em; 
-            }
-            
-            .section { 
-                padding: 25px; 
-            }
-            
-            .comparison { 
-                grid-template-columns: 1fr; 
-            }
-            
-            .timeline::before { 
-                left: 20px; 
-            }
-            
-            .timeline-item { 
-                width: calc(100% - 40px); 
-                margin-left: 40px; 
-            }
-            
-            .timeline-item:nth-child(odd) { 
-                margin-left: 40px; 
-            }
-            
-            .section h2 {
+            .header h1 {
                 font-size: 2em;
             }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 { 
-                font-size: 2em; 
+            
+            .nav {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .robot-animation {
-                width: 80px;
-                height: 80px;
+            .nav-btn {
+                width: 200px;
             }
             
-            .robot-animation::before {
-                font-size: 2.5em;
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
-        <div class="header">
-            <h1>🤖 Robots & AI</h1>
-            <p>Exploring Tomorrow's Technology Today</p>
-            <div class="robot-animation"></div>
+        <!-- Header -->
+        <div class="header glow">
+            <h1>🤖 AI in Our Daily Lives</h1>
+            <p>Discover how Artificial Intelligence makes our world smarter!</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav">
+            <button class="nav-btn active" onclick="showSection('intro')">What is AI?</button>
+            <button class="nav-btn" onclick="showSection('uses')">Where We Use AI</button>
+            <button class="nav-btn" onclick="showSection('industries')">AI Industries</button>
+            <button class="nav-btn" onclick="showSection('game')">AI Finder Game</button>
+            <button class="nav-btn" onclick="showSection('quiz')">Fun Quiz</button>
+            <button class="nav-btn" onclick="showSection('conclusion')">Wrap Up</button>
         </div>
 
         <!-- Introduction Section -->
-        <div class="section">
-            <h2>What is a Robot?</h2>
-            <p>Welcome to an exciting journey into the world of robots and artificial intelligence! Today, we'll learn what makes robots "smart" and how they're changing our future.</p>
-            <div class="grid">
-                <div class="card">
-                    <h4>🔧 Machines with Purpose</h4>
-                    <p>Robots are machines designed to perform specific tasks. They can be simple or complex depending on their job.</p>
+        <div id="intro" class="section active">
+            <div class="card floating">
+                <h2>What is Artificial Intelligence?</h2>
+                <div class="grid">
+                    <div class="grid-item">
+                        <h3>🧠 Smart Programs</h3>
+                        <p>AI is like a clever computer program that can think and learn like humans do!</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>🔧 Problem Solvers</h3>
+                        <p>These programs help solve problems and make decisions without constant human help.</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>🤝 Digital Helpers</h3>
+                        <p>AI systems can understand our words, recognize our faces, and help us with daily tasks.</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>📋 Pre-programmed Robots</h4>
-                    <p>These robots follow fixed instructions. They do exactly what they're told to do without making decisions.</p>
-                </div>
-                <div class="card">
-                    <h4>🧠 AI-powered Robots</h4>
-                    <p>These clever machines can learn from data. They adapt their actions based on what they observe.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Robots vs AI Section -->
-        <div class="section">
-            <h2>Robots vs. AI: What's the Difference?</h2>
-            <div class="comparison">
-                <div class="vs-item">
-                    <h3>🤖 Robots</h3>
-                    <ul>
-                        <li>Physical machines that interact with the world</li>
-                        <li>Can perform physical tasks</li>
-                        <li>May or may not have AI capabilities</li>
-                    </ul>
-                </div>
-                <div class="vs-item ai">
-                    <h3>🧠 Artificial Intelligence</h3>
-                    <ul>
-                        <li>Computer programs that can learn and think</li>
-                        <li>Makes decisions based on data</li>
-                        <li>Doesn't need a physical body to work</li>
-                    </ul>
+                
+                <div style="margin-top: 30px;">
+                    <h3>How Does AI Work?</h3>
+                    <div class="grid">
+                        <div class="grid-item">
+                            <h3>📚 Learning</h3>
+                            <p>It learns from information and gets smarter over time</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>🎯 Understanding</h3>
+                            <p>AI can understand speech, recognize images, and help with tasks</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>✨ Making Life Better</h3>
+                            <p>It makes our lives easier and more fun every day!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- How Robots Think Section -->
-        <div class="section">
-            <h2>How Robots Think and Learn</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>📊 Collect Data</h4>
-                    <p>Robots gather information through sensors and cameras.</p>
+        <!-- Uses Section -->
+        <div id="uses" class="section">
+            <div class="card">
+                <h2>Where Do We Use AI?</h2>
+                
+                <div class="grid">
+                    <div class="grid-item">
+                        <h3>🗣️ Voice Assistants</h3>
+                        <p>Siri, Alexa, and Google Assistant help with reminders and playing music</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>📺 Recommendation Systems</h3>
+                        <p>Netflix and YouTube suggest videos you might enjoy based on what you've watched</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>🎵 Music Apps</h3>
+                        <p>Spotify creates playlists with songs it thinks you'll like</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>🛒 Shopping</h3>
+                        <p>Shows you toys and clothes you might like</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>💬 Chatbots</h3>
+                        <p>Answer questions on websites</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>🏠 Smart Homes</h3>
+                        <p>Control lights and temperature</p>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h4>⚡ Process Information</h4>
-                    <p>Their computer "brain" analyses what they've observed.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>🎯 Make Decisions</h4>
-                    <p>They choose the best action based on their programming.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>📈 Learn from Results</h4>
-                    <p>Smart robots improve by remembering what works best.</p>
+
+                <h3 style="margin-top: 30px; text-align: center;">More AI Around Us</h3>
+                <div class="grid">
+                    <div class="grid-item">
+                        <h3>🚗 Smart Transport</h3>
+                        <p>Self-driving vehicles and traffic prediction</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>📸 Photo Apps</h3>
+                        <p>Face filters and image enhancement</p>
+                    </div>
+                    <div class="grid-item">
+                        <h3>🎮 Video Games</h3>
+                        <p>Computer players that adapt to your skill</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Types of Robots Section -->
-        <div class="section">
-            <h2>Types of Robots We See Today</h2>
-            <h3>Pre-programmed Robots in Action</h3>
-            <div class="grid">
-                <div class="card">
-                    <h4>🏭 Factory Robots</h4>
-                    <p>These robots follow exact instructions to build cars and other products. Example: Assembly line robots that weld car parts together.</p>
-                </div>
-                <div class="card">
-                    <h4>🧹 Cleaning Robots</h4>
-                    <p>Simple robot vacuums move in patterns to clean floors. Example: Roomba vacuums that clean your house automatically.</p>
-                </div>
-                <div class="card">
-                    <h4>🍕 Food Preparation Robots</h4>
-                    <p>These robots can make foods like pizza using precise steps. Example: Pizza-making robots that spread sauce and add toppings.</p>
-                </div>
-                <div class="card">
-                    <h4>🚦 Traffic Signals</h4>
-                    <p>Even traffic lights are like robots with fixed time patterns. Example: Traffic lights that change every 60 seconds.</p>
-                </div>
-            </div>
-            <h3>AI-Powered Robots: The Smart Machines</h3>
-            <div class="grid">
-                <div class="card">
-                    <h4>🚗 Self-Driving Vehicles</h4>
-                    <p>These vehicles use AI to navigate roads and avoid obstacles without human drivers. Example: Tesla autopilot cars.</p>
-                </div>
-                <div class="card">
-                    <h4>🐕 Robot Pets</h4>
-                    <p>Robot dogs and cats learn from interactions and develop unique "personalities." Example: Sony's AIBO robot dog.</p>
-                </div>
-                <div class="card">
-                    <h4>🚁 Smart Drones</h4>
-                    <p>These flying robots can identify objects and follow moving targets independently. Example: DJI drones that follow you while filming.</p>
+        <!-- Industries Section -->
+        <div id="industries" class="section">
+            <div class="card">
+                <h2>AI Across Industries</h2>
+                
+                <div class="grid">
+                    <div class="grid-item">
+                        <h3>🏥 Healthcare</h3>
+                        <p>AI helps doctors diagnose diseases faster and more accurately</p>
+                        <ul style="text-align: left; margin-top: 10px;">
+                            <li>Reads medical scans quickly</li>
+                            <li>Predicts patient risks</li>
+                            <li>Helps create new medicines</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>🎬 Entertainment</h3>
+                        <p>AI makes our films, games, and music more exciting!</p>
+                        <ul style="text-align: left; margin-top: 10px;">
+                            <li>Creates realistic movie effects</li>
+                            <li>Makes game characters smarter</li>
+                            <li>Suggests songs we might like</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item">
+                        <h3>📚 Education</h3>
+                        <p>AI gives students personalized learning experiences</p>
+                        <ul style="text-align: left; margin-top: 10px;">
+                            <li>Adapts to learning speeds</li>
+                            <li>Provides instant homework help</li>
+                            <li>Translates languages for study</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- How Robots Help Us Section -->
-        <div class="section">
-            <h2>How Robots Help Us Today</h2>
-            <div class="grid">
-                <div class="card">
-                    <h4>🏥 Healthcare</h4>
-                    <p>Robots assist doctors in surgeries and help patients with rehabilitation. Example: Da Vinci surgical robots perform precise operations.</p>
-                </div>
-                <div class="card">
-                    <h4>📚 Education</h4>
-                    <p>Teaching robots make learning fun and adapt to each student's needs. Example: NAO robots teach programming to children.</p>
-                </div>
-                <div class="card">
-                    <h4>🌾 Farming</h4>
-                    <p>Agricultural robots plant seeds and harvest crops efficiently. Example: John Deere autonomous tractors.</p>
-                </div>
-                <div class="card">
-                    <h4>🚀 Space Exploration</h4>
-                    <p>Robots explore places too dangerous for humans, like Mars. Example: NASA's Perseverance rover on Mars.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Design Activity Section -->
-        <div class="section">
-            <h2>Design Your Own Robot!</h2>
-            <div class="interactive-element" onclick="toggleDesignTips()">
-                <h3>🎨 Click here for Robot Design Tips!</h3>
-                <div id="designTips" style="display:none; margin-top:20px; text-align:left;">
-                    <h4>1. Choose a Purpose</h4>
-                    <p>What problem will your robot solve? Will it help people, explore, or clean?</p>
-                    <h4>2. Select Features</h4>
-                    <p>What will your robot need? Arms? Wheels? Sensors? Cameras?</p>
-                    <h4>3. Decide on Intelligence</h4>
-                    <p>Will it follow simple commands or learn from its environment?</p>
-                    <h4>4. Draw Your Design</h4>
-                    <p>Sketch your robot with all its important parts clearly labeled.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Future Robots Section -->
-        <div class="section">
-            <h2>Robots of the Future</h2>
-            <div class="grid">
-                <div class="card">
-                    <h4>🏠 Home Assistants</h4>
-                    <p>Robots will help with cooking, cleaning, and caring for family members.</p>
-                </div>
-                <div class="card">
-                    <h4>⚕️ Medical Helpers</h4>
-                    <p>Tiny robots might travel through our bodies to fix health problems.</p>
-                </div>
-                <div class="card">
-                    <h4>🏗️ City Builders</h4>
-                    <p>Construction robots will build stronger, safer buildings much faster.</p>
-                </div>
-                <div class="card">
-                    <h4>🌌 Space Explorers</h4>
-                    <p>Advanced robots will help humans explore faraway planets and moons.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Amazing Facts Section -->
-        <div class="section">
-            <h2>Amazing Robot Facts!</h2>
-            <div class="grid">
-                <div class="fact-box">
-                    <div class="fact-number">1961</div>
-                    <h4>First Industrial Robot</h4>
-                    <p>The first working robot, Unimate, began working in a factory</p>
-                </div>
-                <div class="fact-box">
-                    <div class="fact-number">10M+</div>
-                    <h4>Robots Working Today</h4>
-                    <p>Millions of robots help in factories, homes, and hospitals</p>
-                </div>
-                <div class="fact-box">
-                    <div class="fact-number">400°C</div>
-                    <h4>Extreme Temperatures</h4>
-                    <p>Some robots work in places too hot or cold for humans</p>
-                </div>
-                <div class="fact-box">
-                    <div class="fact-number">2.5M km</div>
-                    <h4>Mars Distance</h4>
-                    <p>Robots on Mars are controlled from millions of kilometers away</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Robots vs Humans Section -->
-        <div class="section">
-            <h2>Robots vs. Humans: What's Special About Us?</h2>
-            <div class="comparison">
-                <div class="vs-item">
-                    <h3>🤖 Robots Excel At:</h3>
-                    <ul>
-                        <li>Being stronger than humans</li>
-                        <li>Calculating faster</li>
-                        <li>Never getting tired</li>
-                        <li>Following rules exactly</li>
-                        <li>Doing specific tasks repeatedly</li>
-                    </ul>
-                </div>
-                <div class="vs-item ai">
-                    <h3>👨‍👩‍👧‍👦 Humans Excel At:</h3>
-                    <ul>
-                        <li>Having emotions and empathy</li>
-                        <li>Understanding complex feelings</li>
-                        <li>Being creative and artistic</li>
-                        <li>Breaking rules when needed</li>
-                        <li>Adapting to new situations quickly</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ethics Section -->
-        <div class="section">
-            <h2>Robot Ethics: Important Questions</h2>
-            <div class="grid">
-                <div class="card">
-                    <h4>🛡️ Safety First</h4>
-                    <p>How do we ensure robots always operate safely around people?</p>
-                </div>
-                <div class="card">
-                    <h4>⚖️ Fair Decisions</h4>
-                    <p>How can we make sure AI makes decisions that are fair for everyone?</p>
-                </div>
-                <div class="card">
-                    <h4>🤔 Robot Rights</h4>
-                    <p>Should very advanced robots ever have rights of their own?</p>
+        <!-- Game Section -->
+        <div id="game" class="section">
+            <div class="card">
+                <h2>🎮 AI Finder Game</h2>
+                <div class="ai-finder">
+                    <h3>Can you spot which items use AI and which don't?</h3>
+                    <p>Click on each item to reveal if it uses AI or not!</p>
+                    
+                    <div class="ai-items" id="aiItems">
+                        <!-- Items will be populated by JavaScript -->
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <button class="quiz-btn" onclick="resetGame()">🔄 Reset Game</button>
+                        <div id="gameScore" style="margin-top: 15px; font-size: 1.2em;"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Quiz Section -->
-        <div class="quiz-section">
-            <div class="quiz-container">
-                <h2 style="text-align: center; color: white; margin-bottom: 30px;">🧠 Test Your Knowledge!</h2>
-                <div class="quiz-progress">
-                    <div class="quiz-progress-bar" id="progressBar"></div>
-                </div>
-                <div class="question active" id="q1">
-                    <h3>Question 1: What is the main difference between pre-programmed robots and AI-powered robots?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectOption(this, false)">Pre-programmed robots are faster</div>
-                        <div class="option" onclick="selectOption(this, false)">AI-powered robots are cheaper</div>
-                        <div class="option" onclick="selectOption(this, true)">AI-powered robots can learn and adapt, while pre-programmed robots follow fixed instructions</div>
-                        <div class="option" onclick="selectOption(this, false)">There is no difference</div>
+        <div id="quiz" class="section">
+            <div class="card">
+                <h2>🧠 Fun AI Quiz</h2>
+                <div class="quiz-container">
+                    <div id="quizQuestions">
+                        <!-- Questions will be populated by JavaScript -->
                     </div>
-                </div>
-                <div class="question" id="q2">
-                    <h3>Question 2: Which of these is an example of a pre-programmed robot?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectOption(this, false)">Self-driving car</div>
-                        <div class="option" onclick="selectOption(this, true)">Factory assembly robot</div>
-                        <div class="option" onclick="selectOption(this, false)">Robot pet that learns</div>
-                        <div class="option" onclick="selectOption(this, false)">Smart drone that follows targets</div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="quiz-btn" id="submitQuiz" onclick="submitQuiz()" disabled>Submit Quiz</button>
+                        <button class="quiz-btn" onclick="resetQuiz()">🔄 Reset Quiz</button>
                     </div>
-                </div>
-                <div class="question" id="q3">
-                    <h3>Question 3: What is the first step in how robots think and learn?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectOption(this, false)">Make decisions</div>
-                        <div class="option" onclick="selectOption(this, true)">Collect data through sensors</div>
-                        <div class="option" onclick="selectOption(this, false)">Learn from results</div>
-                        <div class="option" onclick="selectOption(this, false)">Process information</div>
-                    </div>
-                </div>
-                <div class="question" id="q4">
-                    <h3>Question 4: In which year did the first industrial robot start working?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectOption(this, false)">1955</div>
-                        <div class="option" onclick="selectOption(this, true)">1961</div>
-                        <div class="option" onclick="selectOption(this, false)">1970</div>
-                        <div class="option" onclick="selectOption(this, false)">1980</div>
-                    </div>
-                </div>
-                <div class="question" id="q5">
-                    <h3>Question 5: What makes humans special compared to robots?</h3>
-                    <div class="options">
-                        <div class="option" onclick="selectOption(this, false)">Humans are stronger</div>
-                        <div class="option" onclick="selectOption(this, false)">Humans calculate faster</div>
-                        <div class="option" onclick="selectOption(this, true)">Humans have emotions and creativity</div>
-                        <div class="option" onclick="selectOption(this, false)">Humans never get tired</div>
-                    </div>
-                </div>
-                <div class="quiz-nav">
-                    <button class="btn" id="prevBtn" onclick="changeQuestion(-1)" disabled>Previous</button>
-                    <button class="btn" id="nextBtn" onclick="changeQuestion(1)">Next</button>
-                    <button class="btn" id="submitBtn" onclick="submitQuiz()" style="display:none;">Submit Quiz</button>
-                </div>
-                <div class="quiz-result" id="quizResult">
-                    <h2>🎉 Quiz Complete!</h2>
-                    <div class="score-circle" id="scoreCircle">
-                        <span id="scoreText">0%</span>
-                    </div>
-                    <p id="resultMessage"></p>
-                    <button class="btn" onclick="restartQuiz()">Restart Quiz</button>
+                    <div id="quizResults" style="display: none;"></div>
                 </div>
             </div>
         </div>
 
-        <!-- Summary Section -->
-        <div class="section">
-            <h2>What We Learned Today</h2>
-            <div class="grid">
-                <div class="card">
-                    <h4>🤖 Robots & AI Basics</h4>
-                    <p>We learned what robots are and how they can use AI to think.</p>
+        <!-- Conclusion Section -->
+        <div id="conclusion" class="section">
+            <div class="card">
+                <h2>🎉 AI is Everywhere!</h2>
+                
+                <div class="stats">
+                    <div class="stat-item floating">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">AI Tools</span>
+                        <p style="font-size: 0.9em; margin-top: 5px;">Different AI tools in our daily lives</p>
+                    </div>
+                    <div class="stat-item floating" style="animation-delay: 0.5s;">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Assistance</span>
+                        <p style="font-size: 0.9em; margin-top: 5px;">AI helpers are always available</p>
+                    </div>
+                    <div class="stat-item floating" style="animation-delay: 1s;">
+                        <span class="stat-number">5B+</span>
+                        <span class="stat-label">Users</span>
+                        <p style="font-size: 0.9em; margin-top: 5px;">People using AI globally</p>
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>🔧 Different Types</h4>
-                    <p>We explored pre-programmed robots and AI-powered smart machines.</p>
-                </div>
-                <div class="card">
-                    <h4>🎨 Design Thinking</h4>
-                    <p>We designed our own robots and imagined their stories.</p>
-                </div>
-                <div class="card">
-                    <h4>🚀 Future Possibilities</h4>
-                    <p>We discovered how robots might change our world tomorrow.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="section" style="text-align: center;">
-            <h2>Thank You!</h2>
-            <p style="font-size: 1.2em;">We hope you enjoyed exploring the fascinating world of robots and AI with us today. Remember, the future of technology is being shaped right now, and you could be part of it!</p>
-            <div class="interactive-element">
-                <h3>🎓 Next Class: Introduction to Machine Learning</h3>
-                <p>Get ready to explore how computers can learn patterns from data and make decisions without explicit programming!</p>
+                <div style="text-align: center; margin: 30px 0;">
+                    <p style="font-size: 1.3em; margin-bottom: 20px;">AI is all around us, making our lives easier in many amazing ways!</p>
+                    <p style="font-size: 1.2em; color: #ffdd44;">What's your favourite way AI helps you?</p>
+                </div>
+
+                <div class="card" style="background: linear-gradient(45deg, rgba(229, 9, 20, 0.2), rgba(244, 6, 18, 0.1));">
+                    <h3>🚀 Next Class Preview: Smart Devices</h3>
+                    <div class="grid">
+                        <div class="grid-item">
+                            <h3>📱 Types of Smart Devices</h3>
+                            <p>Discover different smart gadgets for our homes</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>🔗 Device Communication</h3>
+                            <p>Learn how gadgets talk to each other</p>
+                        </div>
+                        <div class="grid-item">
+                            <h3>🛡️ Home Safety Features</h3>
+                            <p>Explore smart technology for safety</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 15px;">
+                    <h3>✨ Thank You for Learning with Us!</h3>
+                    <p>Today we explored the amazing world of AI all around us. We hope you'll start noticing AI helpers in your daily life!</p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        let currentQuestion = 1;
-        let totalQuestions = 5;
-        let score = 0;
-        let answers = {};
-        
-        function selectOption(element, isCorrect) {
-            // Remove previous selections
-            const options = element.parentElement.children;
-            for (let option of options) {
-                option.classList.remove('selected');
-                option.style.pointerEvents = 'none'; // Disable further clicks after selection
-            }
+        // Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
             
-            // Add selected class
-            element.classList.add('selected');
+            // Remove active class from all nav buttons
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => btn.classList.remove('active'));
             
-            // Store answer
-            answers[currentQuestion] = { element, isCorrect };
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
             
-            // Show correct/incorrect feedback
-            for (let option of options) {
-                if (option === element && isCorrect) {
-                    option.classList.add('correct');
-                } else if (option !== element && !isCorrect) {
-                    option.classList.add('incorrect');
-                }
-            }
-            
-            // Enable next button
-            document.getElementById('nextBtn').disabled = false;
-            
-            // Update score if correct
-            if (isCorrect) {
-                score++;
-            }
+            // Add active class to clicked button
+            event.target.classList.add('active');
         }
-        
-        function changeQuestion(direction) {
-            // Save current question state
-            const currentEl = document.getElementById(`q${currentQuestion}`);
-            currentEl.classList.remove('active');
+
+        // AI Finder Game
+        const aiItems = [
+            {name: "Smart Fridge", hasAI: true},
+            {name: "Regular Toaster", hasAI: false},
+            {name: "Voice Assistant", hasAI: true},
+            {name: "Robot Vacuum", hasAI: true},
+            {name: "Spotify App", hasAI: true},
+            {name: "Alarm Clock", hasAI: false},
+            {name: "Smart Speaker", hasAI: true},
+            {name: "Plain Pencil", hasAI: false},
+            {name: "Netflix", hasAI: true},
+            {name: "Self-driving Car", hasAI: true},
+            {name: "Regular Bicycle", hasAI: false},
+            {name: "Camera with Filters", hasAI: true}
+        ];
+
+        let gameScore = 0;
+        let totalClicked = 0;
+
+        function initializeGame() {
+            const container = document.getElementById('aiItems');
+            container.innerHTML = '';
             
-            // Update question number
-            currentQuestion += direction;
-            
-            // Update progress bar
-            const progress = ((currentQuestion - 1) / totalQuestions) * 100;
-            document.getElementById('progressBar').style.width = `${progress}%`;
-            
-            // Show new question
-            const newEl = document.getElementById(`q${currentQuestion}`);
-            newEl.classList.add('active');
-            
-            // Update button states
-            document.getElementById('prevBtn').disabled = currentQuestion === 1;
-            document.getElementById('nextBtn').disabled = true;
-            
-            // Show submit button on last question
-            if (currentQuestion === totalQuestions) {
-                document.getElementById('nextBtn').style.display = 'none';
-                document.getElementById('submitBtn').style.display = 'inline-block';
-            } else {
-                document.getElementById('nextBtn').style.display = 'inline-block';
-                document.getElementById('submitBtn').style.display = 'none';
-            }
-        }
-        
-        function submitQuiz() {
-            // Calculate score percentage
-            const percentage = Math.round((score / totalQuestions) * 100);
-            
-            // Get result elements
-            const quizResult = document.getElementById('quizResult');
-            const scoreCircle = document.getElementById('scoreCircle');
-            const scoreText = document.getElementById('scoreText');
-            const resultMessage = document.getElementById('resultMessage');
-            
-            // Update score circle (for browsers that support CSS variables)
-            try {
-                const deg = (percentage / 100) * 360;
-                scoreCircle.style.setProperty('--score-deg', `${deg}deg`);
-            } catch (e) {
-                console.log("CSS variable update not supported in this browser");
-            }
-            
-            // Update score text
-            scoreText.textContent = `${percentage}%`;
-            
-            // Update message based on score
-            if (percentage >= 80) {
-                resultMessage.innerHTML = `<span style="color: var(--success-color); font-size: 1.2em;">Excellent work! You're a robotics expert!</span>`;
-            } else if (percentage >= 60) {
-                resultMessage.innerHTML = `<span style="color: var(--warning-color); font-size: 1.2em;">Great effort! Keep learning about robots!</span>`;
-            } else {
-                resultMessage.innerHTML = `<span style="color: var(--danger-color); font-size: 1.2em;">Good try! Review the material and try again!</span>`;
-            }
-            
-            // Hide questions and show result
-            document.querySelectorAll('.question').forEach(q => q.style.display = 'none');
-            quizResult.style.display = 'block';
-        }
-        
-        function restartQuiz() {
-            // Reset variables
-            currentQuestion = 1;
-            score = 0;
-            answers = {};
-            
-            // Reset UI
-            document.querySelectorAll('.option').forEach(option => {
-                option.classList.remove('selected', 'correct', 'incorrect');
-                option.style.pointerEvents = 'auto';
+            aiItems.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'ai-item';
+                itemDiv.innerHTML = `
+                    <div>${item.name}</div>
+                    <div style="font-size: 0.8em; margin-top: 5px; opacity: 0;" id="result-${index}">
+                        ${item.hasAI ? '✅ Uses AI!' : '❌ No AI'}
+                    </div>
+                `;
+                itemDiv.onclick = () => revealItem(index, itemDiv);
+                container.appendChild(itemDiv);
             });
             
-            document.getElementById('progressBar').style.width = '0%';
-            document.getElementById('quizResult').style.display = 'none';
-            
-            // Show first question
-            document.getElementById('q1').style.display = 'block';
-            document.getElementById('q1').classList.add('active');
-            
-            // Reset buttons
-            document.getElementById('prevBtn').disabled = true;
-            document.getElementById('nextBtn').disabled = false;
-            document.getElementById('nextBtn').style.display = 'inline-block';
-            document.getElementById('submitBtn').style.display = 'none';
+            gameScore = 0;
+            totalClicked = 0;
+            document.getElementById('gameScore').innerHTML = '';
         }
-        
-        function toggleDesignTips() {
-            const tips = document.getElementById('designTips');
-            tips.style.display = tips.style.display === 'none' ? 'block' : 'none';
+
+        function revealItem(index, element) {
+            if (element.classList.contains('revealed')) return;
+            
+            const item = aiItems[index];
+            const resultDiv = document.getElementById(`result-${index}`);
+            
+            element.classList.add('revealed');
+            element.classList.add(item.hasAI ? 'ai-yes' : 'ai-no');
+            resultDiv.style.opacity = '1';
+            
+            totalClicked++;
+            if (item.hasAI) gameScore++;
+            
+            if (totalClicked === aiItems.length) {
+                setTimeout(() => {
+                    document.getElementById('gameScore').innerHTML = `
+                        <div class="score-display">
+                            🎉 Game Complete! You found ${gameScore} out of ${aiItems.filter(item => item.hasAI).length} AI items!
+                        </div>
+                    `;
+                }, 500);
+            }
         }
+
+        function resetGame() {
+            initializeGame();
+        }
+
+        // Quiz
+        const quizQuestions = [
+            {
+                question: "Which is NOT an AI?",
+                options: ["Smart Fridge", "Regular Toaster", "Voice Assistant"],
+                correct: 1
+            },
+            {
+                question: "Which AI helps with music?",
+                options: ["Robot Vacuum", "Spotify", "Alarm Clock"],
+                correct: 1
+            },
+            {
+                question: "What can voice assistants do?",
+                options: ["Cook food", "Answer questions", "Drive cars"],
+                correct: 1
+            },
+            {
+                question: "Where might you find AI in a home?",
+                options: ["In a smart speaker", "In a regular pencil", "In a plain wooden chair"],
+                correct: 0
+            },
+            {
+                question: "How does AI learn?",
+                options: ["By reading books", "From lots of information", "By sleeping at night"],
+                correct: 1
+            },
+            {
+                question: "Which app uses AI to recognize faces?",
+                options: ["Calculator", "Calendar", "Camera"],
+                correct: 2
+            },
+            {
+                question: "What helps Netflix suggest movies you might like?",
+                options: ["Magic", "AI recommendation systems", "Random guessing"],
+                correct: 1
+            },
+            {
+                question: "Which of these uses AI?",
+                options: ["Self-driving cars", "Regular bicycles", "Simple light switches"],
+                correct: 0
+            },
+            {
+                question: "How do chatbots help people?",
+                options: ["By cooking meals", "By answering questions online", "By washing clothes"],
+                correct: 1
+            },
+            {
+                question: "What can AI do in video games?",
+                options: ["Control computer players", "Fix broken game consoles", "Make snacks for players"],
+                correct: 0
+            }
+        ];
+
+        let userAnswers = [];
+
+        function initializeQuiz() {
+            const container = document.getElementById('quizQuestions');
+            container.innerHTML = '';
+            userAnswers = [];
+            
+            quizQuestions.forEach((q, qIndex) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <h4>Question ${qIndex + 1}: ${q.question}</h4>
+                    <div class="options">
+                        ${q.options.map((option, oIndex) => `
+                            <div class="option" onclick="selectOption(${qIndex}, ${oIndex}, this)">
+                                ${String.fromCharCode(65 + oIndex)}) ${option}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(questionDiv);
+            });
+            
+            document.getElementById('submitQuiz').disabled = true;
+            document.getElementById('quizResults').style.display = 'none';
+        }
+
+        function selectOption(questionIndex, optionIndex, element) {
+            // Remove selection from other options in the same question
+            const questionDiv = element.parentNode.parentNode;
+            const options = questionDiv.querySelectorAll('.option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Select current option
+            element.classList.add('selected');
+            userAnswers[questionIndex] = optionIndex;
+            
+            // Enable submit button if all questions are answered
+            if (userAnswers.length === quizQuestions.length && !userAnswers.includes(undefined)) {
+                document.getElementById('submitQuiz').disabled = false;
+            }
+        }
+
+        function submitQuiz() {
+            let score = 0;
+            const questions = document.querySelectorAll('.question');
+            
+            questions.forEach((questionDiv, qIndex) => {
+                const options = questionDiv.querySelectorAll('.option');
+                const userAnswer = userAnswers[qIndex];
+                const correctAnswer = quizQuestions[qIndex].correct;
+                
+                options.forEach((option, oIndex) => {
+                    if (oIndex === correctAnswer) {
+                        option.classList.add('correct');
+                    } else if (oIndex === userAnswer && userAnswer !== correctAnswer) {
+                        option.classList.add('incorrect');
+                    }
+                });
+                
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+            });
+            
+            // Show results
+            const resultsDiv = document.getElementById('quizResults');
+            const percentage = Math.round((score / quizQuestions.length) * 100);
+            let message = '';
+            
+            if (percentage >= 90) {
+                message = '🏆 Outstanding! You\'re an AI expert!';
+            } else if (percentage >= 70) {
+                message = '🌟 Great job! You know a lot about AI!';
+            } else if (percentage >= 50) {
+                message = '👍 Good work! Keep learning about AI!';
+            } else {
+                message = '📚 Keep studying! AI is fascinating!';
+            }
+            
+            resultsDiv.innerHTML = `
+                <div class="score-display">
+                    <h3>${message}</h3>
+                    <p>You scored ${score} out of ${quizQuestions.length} (${percentage}%)</p>
+                </div>
+            `;
+            resultsDiv.style.display = 'block';
+            
+            // Disable submit button
+            document.getElementById('submitQuiz').disabled = true;
+        }
+
+        function resetQuiz() {
+            initializeQuiz();
+        }
+
+        // Initialize everything when page loads
+        window.onload = function() {
+            initializeGame();
+            initializeQuiz();
+            
+            // Add some dynamic effects
+            setInterval(() => {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach((card, index) => {
+                    if (card.offsetParent !== null) { // Only visible cards
+                        setTimeout(() => {
+                            card.style.transform = 'translateY(-2px)';
+                            setTimeout(() => {
+                                card.style.transform = 'translateY(0)';
+                            }, 200);
+                        }, index * 100);
+                    }
+                });
+            }, 5000);
+            
+            // Add click sound effect (visual feedback)
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('nav-btn') || 
+                    e.target.classList.contains('quiz-btn') || 
+                    e.target.classList.contains('ai-item') ||
+                    e.target.classList.contains('option')) {
+                    
+                    e.target.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        e.target.style.transform = '';
+                    }, 150);
+                }
+            });
+            
+            // Add typing effect to header
+            const headerText = document.querySelector('.header h1');
+            const originalText = headerText.textContent;
+            headerText.textContent = '';
+            
+            let i = 0;
+            const typeInterval = setInterval(() => {
+                if (i < originalText.length) {
+                    headerText.textContent += originalText.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typeInterval);
+                }
+            }, 100);
+            
+            // Add floating animation to random elements
+            setTimeout(() => {
+                const gridItems = document.querySelectorAll('.grid-item');
+                gridItems.forEach((item, index) => {
+                    if (Math.random() > 0.5) {
+                        item.classList.add('floating');
+                        item.style.animationDelay = `${index * 0.2}s`;
+                    }
+                });
+            }, 2000);
+        };
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const sections = ['intro', 'uses', 'industries', 'game', 'quiz', 'conclusion'];
+            const currentSection = document.querySelector('.section.active').id;
+            const currentIndex = sections.indexOf(currentSection);
+            
+            if (e.key === 'ArrowRight' && currentIndex < sections.length - 1) {
+                const nextSection = sections[currentIndex + 1];
+                showSection(nextSection);
+                document.querySelector(`[onclick="showSection('${nextSection}')"]`).classList.add('active');
+            } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                const prevSection = sections[currentIndex - 1];
+                showSection(prevSection);
+                document.querySelector(`[onclick="showSection('${prevSection}')"]`).classList.add('active');
+            }
+        });
+
+        // Add progress tracking
+        function updateProgress() {
+            const sections = document.querySelectorAll('.section');
+            const navBtns = document.querySelectorAll('.nav-btn');
+            const activeSection = document.querySelector('.section.active');
+            const activeIndex = Array.from(sections).indexOf(activeSection);
+            const progress = ((activeIndex + 1) / sections.length) * 100;
+            
+            // Update progress bar if exists
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = progress + '%';
+            }
+        }
+
+        // Add smooth scrolling
+        function smoothScroll(target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Add confetti effect for quiz completion
+        function createConfetti() {
+            const colors = ['#e50914', '#ffdd44', '#2ecc71', '#3498db', '#9b59b6'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-10px';
+                confetti.style.zIndex = '9999';
+                confetti.style.borderRadius = '50%';
+                confetti.style.pointerEvents = 'none';
+                
+                document.body.appendChild(confetti);
+                
+                const fallDuration = Math.random() * 3 + 2;
+                const fallDistance = window.innerHeight + 20;
+                
+                confetti.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${fallDistance}px) rotate(360deg)`, opacity: 0 }
+                ], {
+                    duration: fallDuration * 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }).onfinish = () => {
+                    confetti.remove();
+                };
+            }
+        }
+
+        // Add celebration when quiz is completed with high score
+        const originalSubmitQuiz = submitQuiz;
+        submitQuiz = function() {
+            const result = originalSubmitQuiz();
+            
+            // Calculate score
+            let score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizQuestions[index].correct) {
+                    score++;
+                }
+            });
+            
+            const percentage = Math.round((score / quizQuestions.length) * 100);
+            
+            // Show confetti for good scores
+            if (percentage >= 70) {
+                setTimeout(createConfetti, 500);
+            }
+        };
+
+        // Add interactive tooltips
+        function addTooltips() {
+            const tooltipElements = document.querySelectorAll('[data-tooltip]');
+            tooltipElements.forEach(element => {
+                element.addEventListener('mouseenter', function(e) {
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'tooltip';
+                    tooltip.textContent = e.target.getAttribute('data-tooltip');
+                    tooltip.style.position = 'absolute';
+                    tooltip.style.background = 'rgba(0,0,0,0.8)';
+                    tooltip.style.color = 'white';
+                    tooltip.style.padding = '5px 10px';
+                    tooltip.style.borderRadius = '5px';
+                    tooltip.style.fontSize = '12px';
+                    tooltip.style.zIndex = '10000';
+                    tooltip.style.pointerEvents = 'none';
+                    
+                    document.body.appendChild(tooltip);
+                    
+                    const rect = e.target.getBoundingClientRect();
+                    tooltip.style.left = rect.left + 'px';
+                    tooltip.style.top = (rect.top - tooltip.offsetHeight - 5) + 'px';
+                    
+                    e.target.addEventListener('mouseleave', function() {
+                        tooltip.remove();
+                    });
+                });
+            });
+        }
+
+        // Add AI animation effects
+        function addAIEffects() {
+            const aiElements = document.querySelectorAll('.ai-item, .grid-item');
+            aiElements.forEach((element, index) => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 20px rgba(229, 9, 20, 0.5)';
+                    this.style.transform = 'scale(1.05) rotate(1deg)';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                    this.style.transform = '';
+                });
+            });
+        }
+
+        // Initialize additional effects
+        setTimeout(() => {
+            addTooltips();
+            addAIEffects();
+        }, 1000);
+
+        // Add voice synthesis for accessibility (if supported)
+        function speakText(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.8;
+                utterance.pitch = 1;
+                utterance.volume = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Add keyboard shortcuts info
+        document.addEventListener('DOMContentLoaded', function() {
+            const shortcutInfo = document.createElement('div');
+            shortcutInfo.innerHTML = `
+                <div style="position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.8); color: white; padding: 10px; border-radius: 5px; font-size: 12px; z-index: 1000;">
+                    <div>💡 Keyboard Shortcuts:</div>
+                    <div>← → Arrow keys to navigate</div>
+                    <div>Space to interact</div>
+                </div>
+            `;
+            document.body.appendChild(shortcutInfo);
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                shortcutInfo.style.opacity = '0';
+                shortcutInfo.style.transition = 'opacity 1s';
+                setTimeout(() => shortcutInfo.remove(), 1000);
+            }, 5000);
+        });
     </script>
 </body>
 </html>
